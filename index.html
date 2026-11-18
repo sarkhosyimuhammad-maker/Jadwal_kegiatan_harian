@@ -38,169 +38,173 @@
     <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-stone-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
     <!-- Main Card Container -->
-    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-stone-200/60 p-4 sm:p-6 relative z-10">
+    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-stone-200/60 relative z-10 overflow-hidden">
         
-        <!-- Pesan Kotak Notifikasi Alarm Internal Aplikasi -->
-        <div id="alarm-banner" class="hidden mb-3 p-3 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
-            <div class="flex items-center gap-2">
-                <span class="text-lg">⏰</span>
-                <div>
-                    <h4 class="font-extrabold text-xs uppercase tracking-wide">Waktunya Aktivitas Sehat!</h4>
-                    <p id="alarm-banner-text" class="text-[11px] text-blue-100 mt-0.5"></p>
-                </div>
-            </div>
-            <button onclick="matikanAlarmInternal()" class="bg-white text-blue-800 hover:bg-stone-50 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all">
-                Selesai
-            </button>
-        </div>
-
-        <!-- Header Utama (Desain Logo Tema Biru Sejuk dan Profesional) -->
-        <header class="text-center relative mb-3.5 flex items-center justify-center gap-3">
-            <div class="relative shrink-0 flex items-center justify-center p-2 bg-gradient-to-tr from-blue-600 via-blue-500 to-cyan-400 text-white rounded-xl shadow-md shadow-blue-500/10 border border-white/20 group">
-                <div class="absolute inset-0 bg-blue-400/30 rounded-xl blur opacity-40 group-hover:opacity-70 transition-all"></div>
-                <svg class="h-5 w-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <!-- Header Utama dengan Warna Solid Premium -->
+        <header class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center gap-3 border-b-2 border-blue-800 shadow-sm">
+            <div class="shrink-0 flex items-center justify-center p-2 bg-white/10 border border-white/20 rounded-xl shadow-inner">
+                <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
                     <path d="M12 3C7.5 3 4 6.5 4 11c0 4.5 4.5 9 8 10 3.5-1 8-5.5 8-10 0-4.5-3.5-8-8-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M8.5 11.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div class="text-left">
-                <h1 class="text-base font-extrabold text-slate-900 tracking-tight leading-none">Rencana Hidup Sehat</h1>
-                <p class="text-[10px] text-blue-600 mt-0.5 uppercase tracking-wider font-bold">7 Hari Mindful & Bugar (Ocean Blue)</p>
+            <div>
+                <h1 class="text-sm font-black tracking-tight leading-none">Rencana Hidup Sehat</h1>
+                <p class="text-[9px] text-blue-200 mt-1 uppercase tracking-widest font-extrabold">7 Hari Mindful & Bugar (Ocean Blue)</p>
             </div>
         </header>
 
-        <!-- Navigasi Hari (Sistem Filter Mikro - Diposisikan di Tengah) -->
-        <div class="flex gap-1 overflow-x-auto justify-center pb-2 mb-3 border-b border-slate-100" id="day-tabs">
-            <!-- Diisi otomatis oleh JavaScript -->
-        </div>
-
-        <!-- Form Tambah/Edit Kegiatan & Fitur Manajemen Penggandaan/Penghapusan -->
-        <details id="form-details" class="group mb-3 bg-stone-50 rounded-xl border border-stone-200/60">
-            <summary class="list-none flex justify-between items-center p-2.5 font-bold text-[10px] uppercase tracking-wider text-stone-700 cursor-pointer select-none">
-                <span id="form-title-label">+ Tambah / Kustomisasi / Kelola Jadwal</span>
-                <span class="transition-transform group-open:rotate-180 text-stone-500 text-[8px]">▼</span>
-            </summary>
+        <!-- Padding Container untuk Konten Utama -->
+        <div class="p-4 space-y-3.5">
             
-            <div class="p-3 pt-0 border-t border-stone-200/40 space-y-4">
-                <!-- Sesi Form Input Kegiatan -->
-                <form id="schedule-form" class="space-y-3">
-                    <div class="grid grid-cols-2 gap-2">
-                        <div>
-                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Hari</label>
-                            <select id="task-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
-                                <option value="Senin">Senin</option>
-                                <option value="Selasa">Selasa</option>
-                                <option value="Rabu">Rabu</option>
-                                <option value="Kamis">Kamis</option>
-                                <option value="Jumat">Jumat</option>
-                                <option value="Sabtu">Sabtu</option>
-                                <option value="Minggu">Minggu</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Kategori</label>
-                            <select id="task-category" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
-                                <option value="tidur">🛌 Istirahat</option>
-                                <option value="makan">🍲 Nutrisi Sehat</option>
-                                <option value="kerja">💼 Kerja/Studi</option>
-                                <option value="olahraga">🏋️‍♂️ Olahraga</option>
-                                <option value="obat">💊 Minum Obat</option>
-                                <option value="hidrasi">💧 Air Minum</option>
-                                <option value="metime">🧘 Me-Time / Santai</option>
-                                <option value="lainnya">🌟 Rutinitas</option>
-                            </select>
-                        </div>
-                    </div>
-
+            <!-- Pesan Kotak Notifikasi Alarm Internal Aplikasi -->
+            <div id="alarm-banner" class="hidden p-3 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">⏰</span>
                     <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Nama Aktivitas</label>
-                        <input type="text" id="task-name" required placeholder="Contoh: Minum Obat Darah Tinggi Ibu..." 
-                            class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                        <h4 class="font-extrabold text-xs uppercase tracking-wide">Waktunya Aktivitas Sehat!</h4>
+                        <p id="alarm-banner-text" class="text-[11px] text-blue-100 mt-0.5"></p>
                     </div>
+                </div>
+                <button onclick="matikanAlarmInternal()" class="bg-white text-blue-800 hover:bg-stone-50 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all">
+                    Selesai
+                </button>
+            </div>
 
-                    <div class="grid grid-cols-2 gap-2">
-                        <div>
-                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Mulai</label>
-                            <input type="time" id="task-start" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+            <!-- Navigasi Hari (Sistem Filter Mikro - Diposisikan di Tengah) -->
+            <div class="flex gap-1 overflow-x-auto justify-center pb-2 border-b border-slate-100" id="day-tabs">
+                <!-- Diisi otomatis oleh JavaScript -->
+            </div>
+
+            <!-- Form Tambah/Edit Kegiatan & Fitur Manajemen Penggandaan/Penghapusan -->
+            <details id="form-details" class="group bg-stone-50 rounded-xl border border-stone-200/60">
+                <summary class="list-none flex justify-between items-center p-2.5 font-bold text-[10px] uppercase tracking-wider text-stone-700 cursor-pointer select-none">
+                    <span id="form-title-label">+ Tambah / Kustomisasi / Kelola Jadwal</span>
+                    <span class="transition-transform group-open:rotate-180 text-stone-500 text-[8px]">▼</span>
+                </summary>
+                
+                <div class="p-3 pt-0 border-t border-stone-200/40 space-y-4">
+                    <!-- Sesi Form Input Kegiatan -->
+                    <form id="schedule-form" class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Hari</label>
+                                <select id="task-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                    <option value="Senin">Senin</option>
+                                    <option value="Selasa">Selasa</option>
+                                    <option value="Rabu">Rabu</option>
+                                    <option value="Kamis">Kamis</option>
+                                    <option value="Jumat">Jumat</option>
+                                    <option value="Sabtu">Sabtu</option>
+                                    <option value="Minggu">Minggu</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Kategori</label>
+                                <select id="task-category" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                    <option value="tidur">🛌 Istirahat</option>
+                                    <option value="makan">🍲 Nutrisi Sehat</option>
+                                    <option value="kerja">💼 Kerja/Studi</option>
+                                    <option value="olahraga">🏋️‍♂️ Olahraga</option>
+                                    <option value="obat">💊 Minum Obat</option>
+                                    <option value="hidrasi">💧 Air Minum</option>
+                                    <option value="metime">🧘 Me-Time / Santai</option>
+                                    <option value="lainnya">🌟 Rutinitas</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div>
-                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Selesai</label>
-                            <input type="time" id="task-end" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Nama Aktivitas</label>
+                            <input type="text" id="task-name" required placeholder="Contoh: Minum Obat Darah Tinggi Ibu..." 
+                                class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
                         </div>
-                    </div>
 
-                    <div class="flex gap-2">
-                        <button type="button" id="cancel-edit-btn" onclick="batalEdit()" class="hidden w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2 rounded-lg text-xs transition-all">
-                            Batal
-                        </button>
-                        <button type="submit" id="submit-btn" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-2 rounded-lg text-xs transition-all shadow-sm">
-                            Tambahkan ke Agenda
-                        </button>
-                    </div>
-                </form>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Mulai</label>
+                                <input type="time" id="task-start" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Selesai</label>
+                                <input type="time" id="task-end" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                            </div>
+                        </div>
 
-                <!-- Sesi Fitur Salin Jadwal Massal & Tombol Pengosongan Instan -->
-                <div class="pt-3 border-t border-stone-200/60 space-y-2.5">
-                    <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-1">📋 Salin Seluruh Jadwal Dari Hari Lain</label>
                         <div class="flex gap-2">
-                            <select id="copy-from-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
-                                <option value="Senin">Senin</option>
-                                <option value="Selasa">Selasa</option>
-                                <option value="Rabu">Rabu</option>
-                                <option value="Kamis">Kamis</option>
-                                <option value="Jumat">Jumat</option>
-                                <option value="Sabtu">Sabtu</option>
-                                <option value="Minggu">Minggu</option>
-                            </select>
-                            <button type="button" onclick="eksekusiSalinJadwal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition-all shrink-0 shadow-sm whitespace-nowrap">
-                                Salin Jadwal
+                            <button type="button" id="cancel-edit-btn" onclick="batalEdit()" class="hidden w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2 rounded-lg text-xs transition-all">
+                                Batal
                             </button>
+                            <button type="submit" id="submit-btn" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-2 rounded-lg text-xs transition-all shadow-sm">
+                                Tambahkan ke Agenda
+                        </button>
                         </div>
-                    </div>
+                    </form>
 
-                    <!-- Tombol Kosongkan Hari Ini Sekali Klik -->
-                    <button type="button" onclick="kosongkanHariAktif()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/80 font-bold py-2 rounded-lg text-xs transition-all shadow-sm flex items-center justify-center gap-1.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                        Kosongkan Seluruh Jadwal Hari <span id="clear-day-name" class="underline">Senin</span>
-                    </button>
-                    
-                    <p id="copy-status-msg" class="text-[9px] mt-1.5 hidden font-medium"></p>
+                    <!-- Sesi Fitur Salin Jadwal Massal & Tombol Pengosongan Instan -->
+                    <div class="pt-3 border-t border-stone-200/60 space-y-2.5">
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-1">📋 Salin Seluruh Jadwal Dari Hari Lain</label>
+                            <div class="flex gap-2">
+                                <select id="copy-from-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                    <option value="Senin">Senin</option>
+                                    <option value="Selasa">Selasa</option>
+                                    <option value="Rabu">Rabu</option>
+                                    <option value="Kamis">Kamis</option>
+                                    <option value="Jumat">Jumat</option>
+                                    <option value="Sabtu">Sabtu</option>
+                                    <option value="Minggu">Minggu</option>
+                                </select>
+                                <button type="button" onclick="eksekusiSalinJadwal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition-all shrink-0 shadow-sm whitespace-nowrap">
+                                    Salin Jadwal
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Kosongkan Hari Ini Sekali Klik -->
+                        <button type="button" onclick="kosongkanHariAktif()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/80 font-bold py-2 rounded-lg text-xs transition-all shadow-sm flex items-center justify-center gap-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                            Kosongkan Seluruh Jadwal Hari <span id="clear-day-name" class="underline">Senin</span>
+                        </button>
+                        
+                        <p id="copy-status-msg" class="text-[9px] mt-1.5 hidden font-medium"></p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Agenda Section -->
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-center border-b border-stone-100 pb-1.5">
+                    <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                        Agenda Hari <span id="active-day-label" class="text-blue-600 font-extrabold">Senin</span>
+                    </h2>
+                    <span id="task-count" class="text-[10px] font-bold bg-stone-100 text-stone-700 border border-stone-200 px-2 py-0.5 rounded-full">0 Kegiatan</span>
+                </div>
+                
+                <!-- List Agenda Container (Tampilan Kompak dengan Gulir Mulus) -->
+                <div id="task-list" class="space-y-2 max-h-[65vh] overflow-y-auto pr-0.5">
+                    <!-- Javascript Injection -->
                 </div>
             </div>
-        </details>
 
-        <!-- Agenda Section -->
-        <div class="flex flex-col gap-2">
-            <div class="flex justify-between items-center border-b border-stone-100 pb-1.5">
-                <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                    Agenda Hari <span id="active-day-label" class="text-blue-600 font-extrabold">Senin</span>
-                </h2>
-                <span id="task-count" class="text-[10px] font-bold bg-stone-100 text-stone-700 border border-stone-200 px-2 py-0.5 rounded-full">0 Kegiatan</span>
-            </div>
-            
-            <!-- List Agenda Container (Tampilan Kompak) -->
-            <div id="task-list" class="space-y-1.5 max-h-[68vh] overflow-y-auto pr-0.5">
-                <!-- Javascript Injection -->
-            </div>
         </div>
     </div>
 
     <script>
-        // Palet warna kategori aktivitas
+        // Palet warna kategori aktivitas dengan penanda border-2 tebal (Tebal garis pembatas disesuaikan sesuai instruksi)
         const THEME_CONFIG = {
-            tidur: { bg: 'bg-slate-50/80', border: 'border-slate-200/50', text: 'text-slate-600', bgBadge: 'bg-slate-200/60', label: '🛌 Istirahat' },
-            makan: { bg: 'bg-blue-50/60', border: 'border-blue-300/40', text: 'text-blue-600', bgBadge: 'bg-blue-100', label: '🍲 Nutrisi' },
-            kerja: { bg: 'bg-stone-50/60', border: 'border-stone-200/40', text: 'text-stone-700', bgBadge: 'bg-stone-200/70', label: '💼 Kerja' },
-            olahraga: { bg: 'bg-cyan-50/60', border: 'border-cyan-300/40', text: 'text-cyan-600', bgBadge: 'bg-cyan-100', label: '🏋️‍♂️ Olahraga' },
-            obat: { bg: 'bg-rose-50/70', border: 'border-rose-300/40', text: 'text-rose-600', bgBadge: 'bg-rose-100', label: '💊 Obat/Suplemen' },
-            hidrasi: { bg: 'bg-indigo-50/60', border: 'border-indigo-300/40', text: 'text-indigo-600', bgBadge: 'bg-indigo-100', label: '💧 Air Minum' },
-            metime: { bg: 'bg-amber-50/60', border: 'border-amber-300/40', text: 'text-amber-600', bgBadge: 'bg-amber-100', label: '🧘 Me-Time' },
-            lainnya: { bg: 'bg-zinc-50', border: 'border-zinc-200/60', text: 'text-zinc-600', bgBadge: 'bg-zinc-200/50', label: '🌟 Rutin' }
+            tidur: { bg: 'bg-slate-50/90', border: 'border-slate-300', text: 'text-slate-600', bgBadge: 'bg-slate-200/70', label: '🛌 Istirahat' },
+            makan: { bg: 'bg-blue-50/70', border: 'border-blue-300', text: 'text-blue-600', bgBadge: 'bg-blue-100', label: '🍲 Nutrisi' },
+            kerja: { bg: 'bg-stone-50/80', border: 'border-stone-300', text: 'text-stone-700', bgBadge: 'bg-stone-200/80', label: '💼 Kerja' },
+            olahraga: { bg: 'bg-cyan-50/70', border: 'border-cyan-300', text: 'text-cyan-600', bgBadge: 'bg-cyan-100', label: '🏋️‍♂️ Olahraga' },
+            obat: { bg: 'bg-rose-50/80', border: 'border-rose-300', text: 'text-rose-600', bgBadge: 'bg-rose-100', label: '💊 Obat/Suplemen' },
+            hidrasi: { bg: 'bg-indigo-50/70', border: 'border-indigo-300', text: 'text-indigo-600', bgBadge: 'bg-indigo-100', label: '💧 Air Minum' },
+            metime: { bg: 'bg-amber-50/70', border: 'border-amber-300', text: 'text-amber-600', bgBadge: 'bg-amber-100', label: '🧘 Me-Time' },
+            lainnya: { bg: 'bg-zinc-50/90', border: 'border-zinc-300', text: 'text-zinc-600', bgBadge: 'bg-zinc-200/60', label: '🌟 Rutin' }
         };
 
         const HARI_URUTAN = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
@@ -331,12 +335,6 @@
             }
         }
 
-        function setAndroidAlarm(waktuMulai, namaAktivitas) {
-            const [jam, menit] = waktuMulai.split(':').map(Number);
-            const intentUrl = `intent://#Intent;action=android.intent.action.SET_ALARM;i:android.intent.extra.alarm.HOUR=${jam};i:android.intent.extra.alarm.MINUTES=${menit};S:android.intent.extra.alarm.MESSAGE=${encodeURIComponent(namaAktivitas)};B:android.intent.extra.alarm.SKIP_UI=false;end`;
-            window.location.href = intentUrl;
-        }
-
         function cekWaktuOtomatis() {
             const Clinical_Time = new Date();
             const daftarHariIndo = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -450,33 +448,35 @@
                 const sedangDiedit = originalIndex === editIndex;
                 const isAlarmActive = item.alarmActive !== false;
 
-                // PEMBARUAN UTAMA: Seluruh baris kartu kegiatan tetap terang bugar (tanpa pengurangan opacity atau text-muted hancur)
+                // PEMBARUAN UTAMA: Menggunakan border-2 (lebih tebal), whitespace-normal & break-words agar teks tulisan lebih luas di HP
                 return `
-                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
-                        <div class="flex items-center gap-2 overflow-hidden w-full">
-                            <div class="shrink-0 text-left min-w-[70px]">
+                    <div class="flex items-center justify-between p-2.5 ${config.bg} border-2 ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
+                        <div class="flex items-center gap-2.5 overflow-hidden w-full">
+                            <div class="shrink-0 text-left min-w-[55px]">
                                 <p class="text-[11px] font-bold text-slate-800">${item.start}</p>
                                 <p class="text-[9px] font-medium text-slate-400">s/d ${item.end}</p>
                             </div>
-                            <div class="w-[2px] h-6 bg-slate-200 shrink-0"></div>
-                            <div class="overflow-hidden pr-2">
-                                <p class="text-xs font-bold text-slate-800 truncate tracking-wide" title="${escapeHtml(item.name)}">
+                            <div class="w-[1.5px] h-6 bg-slate-200 shrink-0"></div>
+                            
+                            <!-- Kontainer Teks Luas: Menghilangkan truncate, menggunakan break-words agar pas & tidak tertutup di layar HP -->
+                            <div class="overflow-hidden flex-1 min-w-0 pr-1">
+                                <p class="text-xs font-bold text-slate-800 tracking-wide whitespace-normal break-words leading-tight">
                                     ${escapeHtml(item.name)}
                                 </p>
-                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-0.5 rounded ${config.bgBadge} ${config.text}">
+                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-1 rounded ${config.bgBadge} ${config.text}">
                                     ${config.label} ${sedangDiedit ? '(Diedit)' : ''}
                                 </span>
                             </div>
                         </div>
                         
+                        <!-- Panel Aksi Ringkas Tanpa Tombol Jam Android -->
                         <div class="flex items-center gap-0.5 shrink-0">
-                            <!-- SAKELAR MERAH / BIRU HANYA PADA LONCENG: Lonceng Merah Silang menandakan alarm mati tanpa meredupkan tulisan -->
                             <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-rose-500 hover:bg-rose-50'}" title="${isAlarmActive ? 'Klik untuk Senapkan (Silent) Alarm' : 'Klik untuk Aktifkan Alarm'}">
                                 ${isAlarmActive ? 
-                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                                     </svg>` : 
-                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4L5.405 13.595C5.786 13.214 6 12.697 6 12.158V11c0-1.298.414-2.5 1.117-3.483M10 5.341V5a2 2 0 114 0v.341c.732.17 1.393.513 1.944.975M12 21a3 3 0 01-3-3h6a3 3 0 01-3 3zM3 3l18 18" />
                                     </svg>`
                                 }
@@ -484,11 +484,6 @@
                             <button onclick="aktifkanModeEdit(${originalIndex})" class="text-slate-500 hover:text-blue-600 hover:bg-slate-50 p-1.5 rounded-md transition-all" title="Edit">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                </svg>
-                            </button>
-                            <button onclick="setAndroidAlarm('${item.start}', '${escapeHtml(item.name)}')" class="text-slate-400 hover:text-stone-700 hover:bg-stone-50 p-1.5 rounded-md transition-all" title="Sinkron ke Alarm HP Android bawaan">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </button>
                             <button onclick="hapusJadwal(${originalIndex})" class="text-stone-300 hover:text-rose-600 hover:bg-slate-100 p-1.5 rounded-md transition-all" title="Hapus">
