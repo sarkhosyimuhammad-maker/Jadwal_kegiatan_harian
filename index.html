@@ -40,18 +40,26 @@
     <!-- Main Card Container -->
     <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-stone-200/60 relative z-10 overflow-hidden">
         
-        <!-- Header Utama dengan Warna Solid Premium -->
-        <header class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center gap-3 border-b-2 border-blue-800 shadow-sm">
-            <div class="shrink-0 flex items-center justify-center p-2 bg-white/10 border border-white/20 rounded-xl shadow-inner">
-                <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                    <path d="M12 3C7.5 3 4 6.5 4 11c0 4.5 4.5 9 8 10 3.5-1 8-5.5 8-10 0-4.5-3.5-8-8-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8.5 11.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+        <!-- Header Utama dengan Warna Solid Premium & Indikator Waktu Real-Time Dinamis -->
+        <header class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center justify-between border-b-2 border-blue-800 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="shrink-0 flex items-center justify-center p-2 bg-white/10 border border-white/20 rounded-xl shadow-inner">
+                    <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        <path d="M12 3C7.5 3 4 6.5 4 11c0 4.5 4.5 9 8 10 3.5-1 8-5.5 8-10 0-4.5-3.5-8-8-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.5 11.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black tracking-tight leading-none">Rencana Hidup Sehat</h1>
+                    <p class="text-[9px] text-blue-200 mt-1 uppercase tracking-widest font-extrabold">7 Hari Mindful & Bugar (Alarm Terkoneksi)</p>
+                </div>
             </div>
-            <div>
-                <h1 class="text-sm font-black tracking-tight leading-none">JADWAL-KU</h1>
-                <p class="text-[9px] text-blue-200 mt-1 uppercase tracking-widest font-extrabold">Senin s.d Minggu</p>
+            
+            <!-- Widget Jam dan Tanggal Digital Terupdate -->
+            <div class="text-right bg-black/10 border border-white/10 rounded-xl px-2.5 py-1 min-w-[90px]">
+                <div id="live-clock" class="text-xs font-black tracking-wider leading-none text-cyan-300">00:00:00</div>
+                <div id="live-date" class="text-[8px] font-bold text-blue-100 mt-1 uppercase tracking-tight">Memuat...</div>
             </div>
         </header>
 
@@ -74,13 +82,13 @@
                 </div>
             </div>
 
-            <!-- Navigasi Hari Teroptimal: Teks Lengkap Tanpa Singkatan, Berjejer Pas Menggunakan CSS Flex Progresif -->
-            <div class="flex justify-between gap-0.5 w-full pb-2 border-b border-slate-100 overflow-x-hidden" id="day-tabs">
-                <!-- Diisi otomatis oleh JavaScript dengan teks hari lengkap (Senin - Minggu) -->
+            <!-- Navigasi Hari Teroptimal: Teks Hari Lengkap Sejajar Rapi -->
+            <div class="flex justify-between gap-0.5 w-full pb-1 border-b border-slate-100 overflow-x-hidden" id="day-tabs">
+                <!-- Diisi otomatis oleh JavaScript -->
             </div>
 
             <!-- Form Tambah/Edit Kegiatan & Fitur Manajemen Penggandaan/Penghapusan -->
-            <details id="form-details" class="group mb-3 bg-stone-50 rounded-xl border border-stone-200/60">
+            <details id="form-details" class="group mb-1 bg-stone-50 rounded-xl border border-stone-200/60">
                 <summary class="list-none flex justify-between items-center p-2.5 font-bold text-[10px] uppercase tracking-wider text-stone-700 cursor-pointer select-none">
                     <span id="form-title-label">+ Tambah / Kustomisasi / Kelola Jadwal</span>
                     <span class="transition-transform group-open:rotate-180 text-stone-500 text-[8px]">▼</span>
@@ -105,13 +113,10 @@
                             <div>
                                 <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Kategori</label>
                                 <select id="task-category" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
-                                    <option value="tidur">🛌 Istirahat</option>
                                     <option value="makan">🍲 Nutrisi Sehat</option>
-                                    <option value="kerja">💼 Kerja/Studi</option>
                                     <option value="olahraga">🏋️‍♂️ Olahraga</option>
                                     <option value="obat">💊 Minum Obat</option>
-                                    <option value="hidrasi">💧 Air Minum</option>
-                                    <option value="metime">🧘 Me-Time / Santai</option>
+                                    <option value="tidur">🛌 Istirahat</option>
                                     <option value="lainnya">🌟 Rutinitas</option>
                                 </select>
                             </div>
@@ -119,7 +124,7 @@
 
                         <div>
                             <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Nama Aktivitas</label>
-                            <input type="text" id="task-name" required placeholder="Contoh: Minum Obat Darah Tinggi Ibu..." 
+                            <input type="text" id="task-name" required placeholder="Contoh: Minum Obat Magnesium..." 
                                 class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
                         </div>
 
@@ -164,7 +169,6 @@
                             </div>
                         </div>
 
-                        <!-- Tombol Kosongkan Hari Ini Sekali Klik -->
                         <button type="button" onclick="kosongkanHariAktif()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/80 font-bold py-2 rounded-lg text-xs transition-all shadow-sm flex items-center justify-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -179,15 +183,27 @@
 
             <!-- Agenda Section -->
             <div class="flex flex-col gap-2">
-                <div class="flex justify-between items-center border-b border-stone-100 pb-1.5">
-                    <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                <!-- Baris Judul Agenda Teroptimasi: Tombol Sinkronisasi Bersanding Kompak & Proporsional di Sisi Kanan Label Hari -->
+                <div class="flex justify-between items-center border-b border-stone-100 pb-1.5 gap-2">
+                    <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1 shrink-0">
                         <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                        Agenda Hari <span id="active-day-label" class="text-blue-600 font-extrabold">Senin</span>
+                        Agenda <span id="active-day-label" class="text-blue-600 font-extrabold">Senin</span>
                     </h2>
-                    <span id="task-count" class="text-[10px] font-bold bg-stone-100 text-stone-700 border border-stone-200 px-2 py-0.5 rounded-full">0 Kegiatan</span>
+                    
+                    <div class="flex items-center gap-1.5 justify-end w-full min-w-0">
+                        <!-- Tombol Sinkronisasi Massal yang Lebih Kecil, Padat, Rapi & Tidak Memakan Tempat -->
+                        <button type="button" onclick="kirimSemuaJadwalHariIniKeAndroid()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold px-2.5 py-1 rounded-lg text-[9px] sm:text-[10px] transition-all shadow-sm flex items-center gap-1 whitespace-nowrap" title="Sinkronkan semua alarm yang menyala langsung ke jam HP">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                            📲 Sinkron Alarm HP
+                        </button>
+                        
+                        <span id="task-count" class="text-[9px] font-bold bg-stone-100 text-stone-700 border border-stone-200 px-1.5 py-0.5 rounded-md shrink-0">0 Kegiatan</span>
+                    </div>
                 </div>
                 
-                <!-- List Agenda Container (Tampilan Kompak dengan Gulir Mulus) -->
+                <!-- List Agenda Container -->
                 <div id="task-list" class="space-y-2 max-h-[65vh] overflow-y-auto pr-0.5">
                     <!-- Javascript Injection -->
                 </div>
@@ -197,15 +213,11 @@
     </div>
 
     <script>
-        // Palet warna kategori aktivitas dengan penanda border-2 tebal
         const THEME_CONFIG = {
-            tidur: { bg: 'bg-slate-50/90', border: 'border-slate-300', text: 'text-slate-600', bgBadge: 'bg-slate-200/70', label: '🛌 Istirahat' },
             makan: { bg: 'bg-blue-50/70', border: 'border-blue-300', text: 'text-blue-600', bgBadge: 'bg-blue-100', label: '🍲 Nutrisi' },
-            kerja: { bg: 'bg-stone-50/80', border: 'border-stone-300', text: 'text-stone-700', bgBadge: 'bg-stone-200/80', label: '💼 Kerja' },
             olahraga: { bg: 'bg-cyan-50/70', border: 'border-cyan-300', text: 'text-cyan-600', bgBadge: 'bg-cyan-100', label: '🏋️‍♂️ Olahraga' },
             obat: { bg: 'bg-rose-50/80', border: 'border-rose-300', text: 'text-rose-600', bgBadge: 'bg-rose-100', label: '💊 Obat/Suplemen' },
-            hidrasi: { bg: 'bg-indigo-50/70', border: 'border-indigo-300', text: 'text-indigo-600', bgBadge: 'bg-indigo-100', label: '💧 Air Minum' },
-            metime: { bg: 'bg-amber-50/70', border: 'border-amber-300', text: 'text-amber-600', bgBadge: 'bg-amber-100', label: '🧘 Me-Time' },
+            tidur: { bg: 'bg-slate-50/90', border: 'border-slate-300', text: 'text-slate-600', bgBadge: 'bg-slate-200/70', label: '🛌 Istirahat' },
             lainnya: { bg: 'bg-zinc-50/90', border: 'border-zinc-300', text: 'text-zinc-600', bgBadge: 'bg-zinc-200/60', label: '🌟 Rutin' }
         };
 
@@ -215,38 +227,24 @@
 
         const DEFAULT_SCHEDULE = [];
         
-        // Template Rutinitas Sehat Senin - Jumat
+        // Pola Makan, Olahraga, & Obat Sesuai Permintaan Spesifik Anda (Senin - Jumat)
         HARI_URUTAN.slice(0, 5).forEach(hari => {
             DEFAULT_SCHEDULE.push(
-                { day: hari, name: 'Bangun Tidur & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya', alarmActive: true },
-                { day: hari, name: 'Minum Air Putih Pagi (Hidrasi Awal Tubuh)', start: '05:35', end: '05:45', category: 'hidrasi', alarmActive: true },
-                { day: hari, name: 'Sarapan Sehat (Oatmeal + Pisang / Roti Gandum + Telur Rebus)', start: '06:30', end: '07:00', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Jadwal Minum Obat / Vitamin Pagi Ibu', start: '07:15', end: '07:25', category: 'obat', alarmActive: true },
-                { day: hari, name: 'Mulai Kerja / Aktivitas Pagi', start: '08:00', end: '09:30', category: 'kerja', alarmActive: true },
-                { day: hari, name: 'Waktu Terbaik Ngopi Pagi (Kadar Kortisol Menurun)', start: '09:30', end: '10:00', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Melanjutkan Kerja Produktif', start: '10:00', end: '12:00', category: 'kerja', alarmActive: true },
-                { day: hari, name: 'Istirahat & Makan Siang Sehat (Dada Ayam + Nasi Merah + Sayur)', start: '12:00', end: '13:00', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Kerja Sesi Siang', start: '13:00', end: '16:00', category: 'kerja', alarmActive: true },
-                { day: hari, name: 'Olahraga Sore (Jogging / Kardio / Workout)', start: '16:30', end: '17:30', category: 'olahraga', alarmActive: true },
-                { day: hari, name: 'Makan Malam Terakhir (Maksimal Jam 19.00 - Rendah Karbo)', start: '18:30', end: '19:00', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '19:15', end: '19:25', category: 'obat', alarmActive: true },
-                { day: hari, name: 'Me-Time / Bersantai dengan Keluarga / Main Game / Musik', start: '19:30', end: '21:30', category: 'metime', alarmActive: true },
-                { day: hari, name: 'Tidur Malam Baik (Siklus Istirahat Berbobot)', start: '22:00', end: '05:00', category: 'tidur', alarmActive: true }
+                { day: hari, name: 'Sarapan Pagi Sehat (Menu Diet Rendah Gula)', start: '01:00', end: '01:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Waktu Minum Kopi Kedua', start: '02:00', end: '02:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Makan Siang Bebas / Cheat Meal Siang', start: '13:00', end: '14:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Olahraga Sore Rutin (Bakar Kalori)', start: '17:00', end: '18:00', category: 'olahraga', alarmActive: true },
+                { day: hari, name: 'Makan Sore Sehat / Makan Malam Terakhir', start: '18:30', end: '19:15', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Minum Obat Magnesium (2 Jam Sebelum Tidur - Penenang Otot)', start: '20:00', end: '20:15', category: 'obat', alarmActive: true }
             );
         });
 
-        // Sabtu - Minggu
+        // Sabtu - Minggu (Hanya Pengingat Makan Saja)
         ['Sabtu', 'Minggu'].forEach(hari => {
             DEFAULT_SCHEDULE.push(
-                { day: hari, name: 'Bangun Pagi & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya', alarmActive: true },
-                { day: hari, name: 'Sarapan Pagi (Makan Bebas / Cheat Day Menu)', start: '07:35', end: '08:15', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Jadwal Minum Obat Pagi Ibu', start: '08:20', end: '08:30', category: 'obat', alarmActive: true },
-                { day: hari, name: 'Waktu Bersantai / Hobi Akhir Pekan / Hiburan', start: '09:00', end: '12:00', category: 'metime', alarmActive: true },
-                { day: hari, name: 'Makan Siang (Makan Bebas Kulineran)', start: '12:30', end: '13:30', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Olahraga Akhir Pekan (Tetap Jaga Kebugaran Tubuh)', start: '16:30', end: '17:45', category: 'olahraga', alarmActive: true },
-                { day: hari, name: 'Makan Malam Bebas Bersama Keluarga', start: '19:00', end: '20:15', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '20:20', end: '20:30', category: 'obat', alarmActive: true },
-                { day: hari, name: 'Istirahat / Tidur Malam', start: '22:30', end: '05:00', category: 'tidur', alarmActive: true }
+                { day: hari, name: 'Sarapan Pagi Akhir Pekan (Bebas/Santai)', start: '08:00', end: '09:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Makan Siang Bebas Liburan / Kulineran', start: '12:30', end: '13:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Makan Malam Akhir Pekan', start: '19:00', end: '20:00', category: 'makan', alarmActive: true }
             );
         });
 
@@ -268,7 +266,43 @@
         const cancelEditBtn = document.getElementById('cancel-edit-btn');
         const formTitleLabel = document.getElementById('form-title-label');
 
-        // Menampilkan nama hari lengkap secara pas, proporsional, dan merata menggunakan flex-1 dan ukuran teks mikro yang dinamis untuk layar HP
+        function jalankanIntentAlarmAndroid(namaAktivitas, waktuMulaiStr) {
+            if (!waktuMulaiStr || !waktuMulaiStr.includes(':')) return;
+            const bagianWaktu = waktuMulaiStr.split(':');
+            const jamInt = parseInt(bagianWaktu[0], 10);
+            const menitInt = parseInt(bagianWaktu[1], 10);
+            const labelKustomEncoded = encodeURIComponent(namaAktivitas);
+            
+            return `android-app://com.android.deskclock/images/v1/Alarm?hour=${jamInt}&minute=${menitInt}&message=${labelKustomEncoded}&skipUi=true`;
+        }
+
+        function kirimSemuaJadwalHariIniKeAndroid() {
+            const jadwalHariIni = kegiatanList.filter(item => item.day === selectedDay && item.alarmActive !== false);
+            jadwalHariIni.sort((a, b) => a.start.localeCompare(b.start));
+
+            if (jadwalHariIni.length === 0) {
+                alert(`Tidak ada aktivitas aktif (Lonceng menyala) pada hari ${selectedDay} untuk dikirim.`);
+                return;
+            }
+
+            jadwalHariIni.forEach((item, index) => {
+                setTimeout(() => {
+                    const intentUrl = jalankanIntentAlarmAndroid(item.name, item.start);
+                    
+                    if (index === jadwalHariIni.length - 1) {
+                        const bagianWaktu = item.start.split(':');
+                        window.location.href = `android-app://com.android.deskclock/images/v1/Alarm?hour=${parseInt(bagianWaktu[0],10)}&minute=${parseInt(bagianWaktu[1],10)}&message=${encodeURIComponent(item.name)}&skipUi=false`;
+                    } else {
+                        const iframe = document.createElement('iframe');
+                        iframe.style.display = 'none';
+                        iframe.src = intentUrl;
+                        document.body.appendChild(iframe);
+                        setTimeout(() => iframe.remove(), 500);
+                    }
+                }, index * 800); 
+            });
+        }
+
         function renderTabs() {
             dayTabsContainer.innerHTML = HARI_URUTAN.map(hari => {
                 const isActive = hari === selectedDay;
@@ -338,28 +372,37 @@
             }
         }
 
-        function cekWaktuOtomatis() {
-            const Clinical_Time = new Date();
-            const daftarHariIndo = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const hariSekarang = daftarHariIndo[Clinical_Time.getDay()];
+        function perbaruiJamDanTanggal() {
+            const sekarang = new Date();
+            const jam = String(sekarang.getHours()).padStart(2, '0');
+            const menit = String(sekarang.getMinutes()).padStart(2, '0');
+            const detik = String(sekarang.getSeconds()).padStart(2, '0');
+            document.getElementById('live-clock').innerText = `${jam}:${menit}:${detik}`;
             
-            const jam = String(Clinical_Time.getHours()).padStart(2, '0');
-            const menit = String(Clinical_Time.getMinutes()).padStart(2, '0');
+            const daftarHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const daftarBulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            
+            const namaHari = daftarHari[sekarang.getDay()];
+            const tanggal = grandparents = sekarang.getDate();
+            const namaBulan = daftarBulan[sekarang.getMonth()];
+            
+            document.getElementById('live-date').innerText = `${namaHari}, ${tanggal} ${namaBulan}`;
+
             const waktuSekarangString = `${jam}:${menit}`;
+            if (waktuSekarangString !== menitTerakhirDiperiksa) {
+                menitTerakhirDiperiksa = waktuSekarangString;
+                
+                const aktivitasSesuai = kegiatanList.find(item => 
+                    item.day === namaHari && 
+                    item.start === waktuSekarangString && 
+                    item.alarmActive !== false
+                );
 
-            if (waktuSekarangString === menitTerakhirDiperiksa) return;
-            menitTerakhirDiperiksa = waktuSekarangString;
-
-            const aktivitasSesuai = kegiatanList.find(item => 
-                item.day === hariSekarang && 
-                item.start === waktuSekarangString && 
-                item.alarmActive !== false
-            );
-
-            if (aktivitasSesuai) {
-                alarmBannerText.innerText = `[${aktivitasSesuai.day}] ${aktivitasSesuai.name} (${aktivitasSesuai.start})`;
-                alarmBanner.classList.remove('hidden');
-                mulaiLoopAlarmInternal();
+                if (aktivitasSesuai) {
+                    alarmBannerText.innerText = `[${aktivitasSesuai.day}] ${aktivitasSesuai.name} (${aktivitasSesuai.start})`;
+                    alarmBanner.classList.remove('hidden');
+                    mulaiLoopAlarmInternal();
+                }
             }
         }
 
@@ -464,14 +507,16 @@
                                 <p class="text-xs font-bold text-slate-800 tracking-wide whitespace-normal break-words leading-tight">
                                     ${escapeHtml(item.name)}
                                 </p>
-                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-1 rounded ${config.bgBadge} ${config.text}">
-                                    ${config.label} ${sedangDiedit ? '(Diedit)' : ''}
-                                </span>
+                                <div class="flex items-center gap-1.5 mt-1 flex-wrap">
+                                    <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 rounded ${config.bgBadge} ${config.text}">
+                                        ${config.label}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-0.5 shrink-0">
-                            <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-rose-500 hover:bg-rose-50'}" title="${isAlarmActive ? 'Klik untuk Senapkan (Silent) Alarm' : 'Klik untuk Aktifkan Alarm'}">
+                            <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-rose-500 hover:bg-rose-50'}" title="${isAlarmActive ? 'Lonceng Aktif (Ikut Sinkron Massal)' : 'Lonceng Mati / Mute (Akan Dilewati Saat Sinkron Massal)'}">
                                 ${isAlarmActive ? 
                                     `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -612,7 +657,9 @@
 
             renderTabs();
             renderJadwal();
-            setInterval(cekWaktuOtomatis, 1000);
+            
+            perbaruiJamDanTanggal();
+            setInterval(perbaruiJamDanTanggal, 1000);
         };
     </script>
 </body>
