@@ -140,7 +140,7 @@
                     </div>
                 </form>
 
-                <!-- Sesi Fitur Salin Jadwal Massal & Tombol Pengosongan Instan (Pembaruan Utama Perbaikan User) -->
+                <!-- Sesi Fitur Salin Jadwal Massal & Tombol Pengosongan Instan -->
                 <div class="pt-3 border-t border-stone-200/60 space-y-2.5">
                     <div>
                         <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-1">📋 Salin Seluruh Jadwal Dari Hari Lain</label>
@@ -191,7 +191,7 @@
     </div>
 
     <script>
-        // Palet warna bernuansa Biru Samudra (Ocean Blue) yang sejuk, bersih, dan netral
+        // Palet warna kategori aktivitas
         const THEME_CONFIG = {
             tidur: { bg: 'bg-slate-50/80', border: 'border-slate-200/50', text: 'text-slate-600', bgBadge: 'bg-slate-200/60', label: '🛌 Istirahat' },
             makan: { bg: 'bg-blue-50/60', border: 'border-blue-300/40', text: 'text-blue-600', bgBadge: 'bg-blue-100', label: '🍲 Nutrisi' },
@@ -212,35 +212,35 @@
         // Template Rutinitas Sehat Senin - Jumat
         HARI_URUTAN.slice(0, 5).forEach(hari => {
             DEFAULT_SCHEDULE.push(
-                { day: hari, name: 'Bangun Tidur & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya' },
-                { day: hari, name: 'Minum Air Putih Pagi (Hidrasi Awal Tubuh)', start: '05:35', end: '05:45', category: 'hidrasi' },
-                { day: hari, name: 'Sarapan Sehat (Oatmeal + Pisang / Roti Gandum + Telur Rebus)', start: '06:30', end: '07:00', category: 'makan' },
-                { day: hari, name: 'Jadwal Minum Obat / Vitamin Pagi Ibu', start: '07:15', end: '07:25', category: 'obat' },
-                { day: hari, name: 'Mulai Kerja / Aktivitas Pagi', start: '08:00', end: '09:30', category: 'kerja' },
-                { day: hari, name: 'Waktu Terbaik Ngopi Pagi (Kadar Kortisol Menurun)', start: '09:30', end: '10:00', category: 'makan' },
-                { day: hari, name: 'Melanjutkan Kerja Produktif', start: '10:00', end: '12:00', category: 'kerja' },
-                { day: hari, name: 'Istirahat & Makan Siang Sehat (Dada Ayam + Nasi Merah + Sayur)', start: '12:00', end: '13:00', category: 'makan' },
-                { day: hari, name: 'Kerja Sesi Siang', start: '13:00', end: '16:00', category: 'kerja' },
-                { day: hari, name: 'Olahraga Sore (Jogging / Kardio / Workout)', start: '16:30', end: '17:30', category: 'olahraga' },
-                { day: hari, name: 'Makan Malam Terakhir (Maksimal Jam 19.00 - Rendah Karbo)', start: '18:30', end: '19:00', category: 'makan' },
-                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '19:15', end: '19:25', category: 'obat' },
-                { day: hari, name: 'Me-Time / Bersantai dengan Keluarga / Main Game / Musik', start: '19:30', end: '21:30', category: 'metime' },
-                { day: hari, name: 'Tidur Malam Baik (Siklus Istirahat Berbobot)', start: '22:00', end: '05:00', category: 'tidur' }
+                { day: hari, name: 'Bangun Tidur & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya', alarmActive: true },
+                { day: hari, name: 'Minum Air Putih Pagi (Hidrasi Awal Tubuh)', start: '05:35', end: '05:45', category: 'hidrasi', alarmActive: true },
+                { day: hari, name: 'Sarapan Sehat (Oatmeal + Pisang / Roti Gandum + Telur Rebus)', start: '06:30', end: '07:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Jadwal Minum Obat / Vitamin Pagi Ibu', start: '07:15', end: '07:25', category: 'obat', alarmActive: true },
+                { day: hari, name: 'Mulai Kerja / Aktivitas Pagi', start: '08:00', end: '09:30', category: 'kerja', alarmActive: true },
+                { day: hari, name: 'Waktu Terbaik Ngopi Pagi (Kadar Kortisol Menurun)', start: '09:30', end: '10:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Melanjutkan Kerja Produktif', start: '10:00', end: '12:00', category: 'kerja', alarmActive: true },
+                { day: hari, name: 'Istirahat & Makan Siang Sehat (Dada Ayam + Nasi Merah + Sayur)', start: '12:00', end: '13:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Kerja Sesi Siang', start: '13:00', end: '16:00', category: 'kerja', alarmActive: true },
+                { day: hari, name: 'Olahraga Sore (Jogging / Kardio / Workout)', start: '16:30', end: '17:30', category: 'olahraga', alarmActive: true },
+                { day: hari, name: 'Makan Malam Terakhir (Maksimal Jam 19.00 - Rendah Karbo)', start: '18:30', end: '19:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '19:15', end: '19:25', category: 'obat', alarmActive: true },
+                { day: hari, name: 'Me-Time / Bersantai dengan Keluarga / Main Game / Musik', start: '19:30', end: '21:30', category: 'metime', alarmActive: true },
+                { day: hari, name: 'Tidur Malam Baik (Siklus Istirahat Berbobot)', start: '22:00', end: '05:00', category: 'tidur', alarmActive: true }
             );
         });
 
         // Sabtu - Minggu
         ['Sabtu', 'Minggu'].forEach(hari => {
             DEFAULT_SCHEDULE.push(
-                { day: hari, name: 'Bangun Pagi & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya' },
-                { day: hari, name: 'Sarapan Pagi (Makan Bebas / Cheat Day Menu)', start: '07:35', end: '08:15', category: 'makan' },
-                { day: hari, name: 'Jadwal Minum Obat Pagi Ibu', start: '08:20', end: '08:30', category: 'obat' },
-                { day: hari, name: 'Waktu Bersantai / Hobi Akhir Pekan / Hiburan', start: '09:00', end: '12:00', category: 'metime' },
-                { day: hari, name: 'Makan Siang (Makan Bebas Kulineran)', start: '12:30', end: '13:30', category: 'makan' },
-                { day: hari, name: 'Olahraga Akhir Pekan (Tetap Jaga Kebugaran Tubuh)', start: '16:30', end: '17:45', category: 'olahraga' },
-                { day: hari, name: 'Makan Malam Bebas Bersama Keluarga', start: '19:00', end: '20:15', category: 'makan' },
-                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '20:20', end: '20:30', category: 'obat' },
-                { day: hari, name: 'Istirahat / Tidur Malam', start: '22:30', end: '05:00', category: 'tidur' }
+                { day: hari, name: 'Bangun Pagi & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya', alarmActive: true },
+                { day: hari, name: 'Sarapan Pagi (Makan Bebas / Cheat Day Menu)', start: '07:35', end: '08:15', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Jadwal Minum Obat Pagi Ibu', start: '08:20', end: '08:30', category: 'obat', alarmActive: true },
+                { day: hari, name: 'Waktu Bersantai / Hobi Akhir Pekan / Hiburan', start: '09:00', end: '12:00', category: 'metime', alarmActive: true },
+                { day: hari, name: 'Makan Siang (Makan Bebas Kulineran)', start: '12:30', end: '13:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Olahraga Akhir Pekan (Tetap Jaga Kebugaran Tubuh)', start: '16:30', end: '17:45', category: 'olahraga', alarmActive: true },
+                { day: hari, name: 'Makan Malam Bebas Bersama Keluarga', start: '19:00', end: '20:15', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '20:20', end: '20:30', category: 'obat', alarmActive: true },
+                { day: hari, name: 'Istirahat / Tidur Malam', start: '22:30', end: '05:00', category: 'tidur', alarmActive: true }
             );
         });
 
@@ -317,6 +317,23 @@
             alarmBanner.classList.add('hidden');
         }
 
+        /* BARU: Sakelar Mengubah Status Aktif/Mute Alarm per Aktivitas */
+        function toggleAlarmAktivitas(originalIndex) {
+            if (originalIndex > -1) {
+                const item = kegiatanList[originalIndex];
+                // Jika properti belum ada, set default true lalu balik nilainya
+                item.alarmActive = item.alarmActive !== false ? false : true;
+                
+                localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
+                renderJadwal();
+
+                // Jika pengguna mematikan alarm saat sedang berbunyi, langsung matikan banner pengingat
+                if (!item.alarmActive) {
+                    matikanAlarmInternal();
+                }
+            }
+        }
+
         function setAndroidAlarm(waktuMulai, namaAktivitas) {
             const [jam, menit] = waktuMulai.split(':').map(Number);
             const intentUrl = `intent://#Intent;action=android.intent.action.SET_ALARM;i:android.intent.extra.alarm.HOUR=${jam};i:android.intent.extra.alarm.MINUTES=${menit};S:android.intent.extra.alarm.MESSAGE=${encodeURIComponent(namaAktivitas)};B:android.intent.extra.alarm.SKIP_UI=false;end`;
@@ -335,7 +352,13 @@
             if (waktuSekarangString === menitTerakhirDiperiksa) return;
             menitTerakhirDiperiksa = waktuSekarangString;
 
-            const aktivitasSesuai = kegiatanList.find(item => item.day === hariSekarang && item.start === waktuSekarangString);
+            // HANYA bunyikan jika alarmActive bernilai TRUE atau tidak bernilai FALSE
+            const aktivitasSesuai = kegiatanList.find(item => 
+                item.day === hariSekarang && 
+                item.start === waktuSekarangString && 
+                item.alarmActive !== false
+            );
+
             if (aktivitasSesuai) {
                 alarmBannerText.innerText = `[${aktivitasSesuai.day}] ${aktivitasSesuai.name} (${aktivitasSesuai.start})`;
                 alarmBanner.classList.remove('hidden');
@@ -371,7 +394,8 @@
                     name: item.name,
                     start: item.start,
                     end: item.end,
-                    category: item.category
+                    category: item.category,
+                    alarmActive: item.alarmActive !== false
                 });
             });
 
@@ -383,7 +407,6 @@
             setTimeout(() => statusMsg.classList.add('hidden'), 4000);
         }
 
-        /* LOGIKA UTAMA: MENGOSONGKAN JADWAL SATU HARI PENUH (Solusi Permintaan Baru User) */
         function kosongkanHariAktif() {
             const statusMsg = document.getElementById('copy-status-msg');
             const agendaHariIni = kegiatanList.filter(item => item.day === selectedDay);
@@ -395,13 +418,11 @@
                 return;
             }
 
-            // Pop-up konfirmasi standar browser demi keamanan data agar tidak sengaja terhapus massal
             if (confirm(`Apakah Anda yakin ingin mengosongkan (menghapus) semua kegiatan di hari ${selectedDay}?`)) {
                 if (editIndex !== -1 && kegiatanList[editIndex].day === selectedDay) {
                     batalEdit();
                 }
 
-                // Filter keluar semua kegiatan yang harinya cocok dengan hari aktif (meninggalkan hari lainnya aman)
                 kegiatanList = kegiatanList.filter(item => item.day !== selectedDay);
                 localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
                 renderJadwal();
@@ -431,34 +452,48 @@
                 const originalIndex = kegiatanList.findIndex(x => x.day === item.day && x.start === item.start && x.name === item.name);
                 const config = THEME_CONFIG[item.category] || THEME_CONFIG.lainnya;
                 const sedangDiedit = originalIndex === editIndex;
+                
+                // BARU: Penentuan status alarm aktif atau silent
+                const isAlarmActive = item.alarmActive !== false;
 
                 return `
-                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
+                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all ${!isAlarmActive ? 'opacity-75' : ''}">
                         <div class="flex items-center gap-2 overflow-hidden w-full">
                             <div class="shrink-0 text-left min-w-[70px]">
-                                <p class="text-[11px] font-bold text-slate-800">${item.start}</p>
+                                <p class="text-[11px] font-bold ${!isAlarmActive ? 'text-slate-400' : 'text-slate-800'}">${item.start}</p>
                                 <p class="text-[9px] font-medium text-slate-400">s/d ${item.end}</p>
                             </div>
                             <div class="w-[2px] h-6 bg-slate-200 shrink-0"></div>
                             <div class="overflow-hidden pr-2">
-                                <p class="text-xs font-bold text-slate-800 truncate tracking-wide" title="${escapeHtml(item.name)}">
+                                <p class="text-xs font-bold ${!isAlarmActive ? 'text-slate-400 line-through' : 'text-slate-800'} truncate tracking-wide" title="${escapeHtml(item.name)}">
                                     ${escapeHtml(item.name)}
                                 </p>
-                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-0.5 rounded ${config.bgBadge} ${config.text}">
-                                    ${config.label} ${sedangDiedit ? '(Sedang Diedit)' : ''}
+                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-0.5 rounded ${!isAlarmActive ? 'bg-slate-200 text-slate-500' : config.bgBadge + ' ' + config.text}">
+                                    ${!isAlarmActive ? '🔇 Silent' : config.label} ${sedangDiedit ? '(Diedit)' : ''}
                                 </span>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-0.5 shrink-0">
-                            <button onclick="aktifkanModeEdit(${originalIndex})" class="text-blue-600 hover:bg-blue-50 p-1.5 rounded-md transition-all" title="Edit">
+                            <!-- BARU: Tombol Lonceng Interaktif untuk Aktif / Silent Alarm Internal -->
+                            <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-slate-400 hover:bg-slate-100'}" title="${isAlarmActive ? 'Klik untuk Senapkan (Silent) Alarm' : 'Klik untuk Aktifkan Alarm'}">
+                                ${isAlarmActive ? 
+                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                    </svg>` : 
+                                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4L5.405 13.595C5.786 13.214 6 12.697 6 12.158V11c0-1.298.414-2.5 1.117-3.483M10 5.341V5a2 2 0 114 0v.341c.732.17 1.393.513 1.944.975M12 21a3 3 0 01-3-3h6a3 3 0 01-3 3zM3 3l18 18" />
+                                    </svg>`
+                                }
+                            </button>
+                            <button onclick="aktifkanModeEdit(${originalIndex})" class="text-slate-500 hover:text-blue-600 hover:bg-slate-50 p-1.5 rounded-md transition-all" title="Edit">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                             </button>
-                            <button onclick="setAndroidAlarm('${item.start}', '${escapeHtml(item.name)}')" class="text-stone-600 hover:bg-stone-100 p-1.5 rounded-md transition-all" title="Setel Alarm HP Android">
+                            <button onclick="setAndroidAlarm('${item.start}', '${escapeHtml(item.name)}')" class="text-slate-400 hover:text-stone-700 hover:bg-stone-50 p-1.5 rounded-md transition-all" title="Sinkron ke Alarm HP Android bawaan">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </button>
                             <button onclick="hapusJadwal(${originalIndex})" class="text-stone-300 hover:text-rose-600 hover:bg-slate-100 p-1.5 rounded-md transition-all" title="Hapus">
@@ -522,12 +557,16 @@
             const selesai = document.getElementById('task-end').value;
             const kategori = document.getElementById('task-category').value;
 
+            // Pertahankan status alarmActive lama jika sedang dalam mode edit
+            const alarmActiveLama = editIndex !== -1 ? (kegiatanList[editIndex].alarmActive !== false) : true;
+
             const objekKegiatan = {
                 day: hari,
                 name: nama,
                 start: mulai,
                 end: selesai,
-                category: kategori
+                category: kategori,
+                alarmActive: alarmActiveLama
             };
 
             if (editIndex === -1) {
