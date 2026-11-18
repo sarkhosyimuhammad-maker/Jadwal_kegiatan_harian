@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Sehat Sage Green & Warm Stone</title>
+    <title>Jadwal Sehat Ocean Blue & Soft Slate</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Plus Jakarta Sans -->
@@ -31,121 +31,154 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-stone-100 via-slate-50 to-emerald-50/50 text-slate-800 min-h-screen py-3 px-2 sm:py-6 sm:px-4 flex items-center justify-center relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-100 via-slate-50 to-blue-50/50 text-slate-800 min-h-screen py-3 px-2 sm:py-6 sm:px-4 flex items-center justify-center relative overflow-x-hidden">
 
-    <!-- Ornamen Latar Belakang Sage & Stone Lembut -->
-    <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <!-- Ornamen Latar Belakang Ocean Blue Lembut -->
+    <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-stone-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
     <!-- Main Card Container -->
     <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-stone-200/60 p-4 sm:p-6 relative z-10">
         
         <!-- Pesan Kotak Notifikasi Alarm Internal Aplikasi -->
-        <div id="alarm-banner" class="hidden mb-3 p-3 bg-emerald-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
+        <div id="alarm-banner" class="hidden mb-3 p-3 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
             <div class="flex items-center gap-2">
                 <span class="text-lg">⏰</span>
                 <div>
                     <h4 class="font-extrabold text-xs uppercase tracking-wide">Waktunya Aktivitas Sehat!</h4>
-                    <p id="alarm-banner-text" class="text-[11px] text-emerald-100 mt-0.5"></p>
+                    <p id="alarm-banner-text" class="text-[11px] text-blue-100 mt-0.5"></p>
                 </div>
             </div>
-            <button onclick="matikanAlarmInternal()" class="bg-white text-emerald-700 hover:bg-stone-50 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all">
+            <button onclick="matikanAlarmInternal()" class="bg-white text-blue-800 hover:bg-stone-50 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all">
                 Selesai
             </button>
         </div>
 
-        <!-- Header Utama (Desain Logo Baru dengan Hijau yang Lebih Fresh, Cerah, dan Muda) -->
+        <!-- Header Utama (Desain Logo Tema Biru Sejuk dan Profesional) -->
         <header class="text-center relative mb-3.5 flex items-center justify-center gap-3">
-            <div class="relative shrink-0 flex items-center justify-center p-2 bg-gradient-to-tr from-emerald-500 via-emerald-400 to-teal-400 text-white rounded-xl shadow-md shadow-emerald-500/10 border border-white/20 group">
-                <!-- Efek pendaran halus di belakang logo -->
-                <div class="absolute inset-0 bg-emerald-400/30 rounded-xl blur opacity-40 group-hover:opacity-70 transition-all"></div>
-                <!-- SVG Logo Premium Kustom -->
+            <div class="relative shrink-0 flex items-center justify-center p-2 bg-gradient-to-tr from-blue-600 via-blue-500 to-cyan-400 text-white rounded-xl shadow-md shadow-blue-500/10 border border-white/20 group">
+                <div class="absolute inset-0 bg-blue-400/30 rounded-xl blur opacity-40 group-hover:opacity-70 transition-all"></div>
                 <svg class="h-5 w-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Lingkaran Luar Tipis (Melambangkan Siklus 24 Jam) -->
                     <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-                    <!-- Garis Abstrak Berbentuk Daun Organik & Perisai Kesehatan -->
                     <path d="M12 3C7.5 3 4 6.5 4 11c0 4.5 4.5 9 8 10 3.5-1 8-5.5 8-10 0-4.5-3.5-8-8-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Simbol Centang Presisi (Melambangkan Disiplin & Agenda yang Terpenuhi) -->
                     <path d="M8.5 11.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
             <div class="text-left">
                 <h1 class="text-base font-extrabold text-slate-900 tracking-tight leading-none">Rencana Hidup Sehat</h1>
-                <p class="text-[10px] text-emerald-600 mt-0.5 uppercase tracking-wider font-bold">7 Hari Mindful & Bugar (Fresh & Clean)</p>
+                <p class="text-[10px] text-blue-600 mt-0.5 uppercase tracking-wider font-bold">7 Hari Mindful & Bugar (Ocean Blue)</p>
             </div>
         </header>
 
-        <!-- Navigasi Hari (Sistem Filter Mikro - Diposisikan di Tengah dengan Warna Fresh) -->
+        <!-- Navigasi Hari (Sistem Filter Mikro - Diposisikan di Tengah) -->
         <div class="flex gap-1 overflow-x-auto justify-center pb-2 mb-3 border-b border-slate-100" id="day-tabs">
             <!-- Diisi otomatis oleh JavaScript -->
         </div>
 
-        <!-- Form Tambah/Edit Kegiatan (Sumbu Kustomisasi) -->
+        <!-- Form Tambah/Edit Kegiatan & Fitur Manajemen Penggandaan/Penghapusan -->
         <details id="form-details" class="group mb-3 bg-stone-50 rounded-xl border border-stone-200/60">
             <summary class="list-none flex justify-between items-center p-2.5 font-bold text-[10px] uppercase tracking-wider text-stone-700 cursor-pointer select-none">
-                <span id="form-title-label">+ Tambah / Kustomisasi Kegiatan</span>
+                <span id="form-title-label">+ Tambah / Kustomisasi / Kelola Jadwal</span>
                 <span class="transition-transform group-open:rotate-180 text-stone-500 text-[8px]">▼</span>
             </summary>
-            <form id="schedule-form" class="space-y-3 p-3 pt-0 border-t border-stone-200/40">
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Hari</label>
-                        <select id="task-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-emerald-500 transition-all">
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Jumat">Jumat</option>
-                            <option value="Sabtu">Sabtu</option>
-                            <option value="Minggu">Minggu</option>
-                        </select>
+            
+            <div class="p-3 pt-0 border-t border-stone-200/40 space-y-4">
+                <!-- Sesi Form Input Kegiatan -->
+                <form id="schedule-form" class="space-y-3">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Hari</label>
+                            <select id="task-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                                <option value="Minggu">Minggu</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Kategori</label>
+                            <select id="task-category" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                <option value="tidur">🛌 Istirahat</option>
+                                <option value="makan">🍲 Nutrisi Sehat</option>
+                                <option value="kerja">💼 Kerja/Studi</option>
+                                <option value="olahraga">🏋️‍♂️ Olahraga</option>
+                                <option value="obat">💊 Minum Obat</option>
+                                <option value="hidrasi">💧 Air Minum</option>
+                                <option value="metime">🧘 Me-Time / Santai</option>
+                                <option value="lainnya">🌟 Rutinitas</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Kategori</label>
-                        <select id="task-category" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-emerald-500 transition-all">
-                            <option value="tidur">🛌 Istirahat</option>
-                            <option value="makan">🍲 Nutrisi Sehat</option>
-                            <option value="kerja">💼 Kerja/Studi</option>
-                            <option value="olahraga">🏋️‍♂️ Olahraga</option>
-                            <option value="lainnya">🌟 Rutinitas</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div>
-                    <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Nama Aktivitas</label>
-                    <input type="text" id="task-name" required placeholder="Nama kegiatan..." 
-                        class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-emerald-500 transition-all">
-                </div>
-
-                <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Mulai</label>
-                        <input type="time" id="task-start" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-emerald-500 transition-all">
+                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Nama Aktivitas</label>
+                        <input type="text" id="task-name" required placeholder="Contoh: Minum Obat Darah Tinggi Ibu..." 
+                            class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
                     </div>
-                    <div>
-                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Selesai</label>
-                        <input type="time" id="task-end" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-emerald-500 transition-all">
-                    </div>
-                </div>
 
-                <div class="flex gap-2">
-                    <button type="button" id="cancel-edit-btn" onclick="batalEdit()" class="hidden w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2 rounded-lg text-xs transition-all">
-                        Batal
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Mulai</label>
+                            <input type="time" id="task-start" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Selesai</label>
+                            <input type="time" id="task-end" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button type="button" id="cancel-edit-btn" onclick="batalEdit()" class="hidden w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2 rounded-lg text-xs transition-all">
+                            Batal
+                        </button>
+                        <button type="submit" id="submit-btn" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-2 rounded-lg text-xs transition-all shadow-sm">
+                            Tambahkan ke Agenda
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Sesi Fitur Salin Jadwal Massal & Tombol Pengosongan Instan (Pembaruan Utama Perbaikan User) -->
+                <div class="pt-3 border-t border-stone-200/60 space-y-2.5">
+                    <div>
+                        <label class="block text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-1">📋 Salin Seluruh Jadwal Dari Hari Lain</label>
+                        <div class="flex gap-2">
+                            <select id="copy-from-day" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500 transition-all">
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                                <option value="Minggu">Minggu</option>
+                            </select>
+                            <button type="button" onclick="eksekusiSalinJadwal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition-all shrink-0 shadow-sm whitespace-nowrap">
+                                Salin Jadwal
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Kosongkan Hari Ini Sekali Klik -->
+                    <button type="button" onclick="kosongkanHariAktif()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/80 font-bold py-2 rounded-lg text-xs transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        Kosongkan Seluruh Jadwal Hari <span id="clear-day-name" class="underline">Senin</span>
                     </button>
-                    <button type="submit" id="submit-btn" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-2 rounded-lg text-xs transition-all shadow-sm">
-                        Tambahkan ke Agenda
-                    </button>
+                    
+                    <p id="copy-status-msg" class="text-[9px] mt-1.5 hidden font-medium"></p>
                 </div>
-            </form>
+            </div>
         </details>
 
         <!-- Agenda Section -->
         <div class="flex flex-col gap-2">
             <div class="flex justify-between items-center border-b border-stone-100 pb-1.5">
                 <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    Agenda Hari <span id="active-day-label" class="text-emerald-600 font-extrabold">Senin</span>
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    Agenda Hari <span id="active-day-label" class="text-blue-600 font-extrabold">Senin</span>
                 </h2>
                 <span id="task-count" class="text-[10px] font-bold bg-stone-100 text-stone-700 border border-stone-200 px-2 py-0.5 rounded-full">0 Kegiatan</span>
             </div>
@@ -158,26 +191,31 @@
     </div>
 
     <script>
-        // Palet warna estetik dengan nuansa hijau emerald yang lebih segar, terang, dan muda
+        // Palet warna bernuansa Biru Samudra (Ocean Blue) yang sejuk, bersih, dan netral
         const THEME_CONFIG = {
-            tidur: { bg: 'bg-slate-50/80', border: 'border-slate-200/50', text: 'text-slate-600', bgBadge: 'bg-slate-200/60', label: '🛌 Tidur' },
-            makan: { bg: 'bg-emerald-50/60', border: 'border-emerald-300/40', text: 'text-emerald-600', bgBadge: 'bg-emerald-100', label: '🍲 Nutrisi' },
+            tidur: { bg: 'bg-slate-50/80', border: 'border-slate-200/50', text: 'text-slate-600', bgBadge: 'bg-slate-200/60', label: '🛌 Istirahat' },
+            makan: { bg: 'bg-blue-50/60', border: 'border-blue-300/40', text: 'text-blue-600', bgBadge: 'bg-blue-100', label: '🍲 Nutrisi' },
             kerja: { bg: 'bg-stone-50/60', border: 'border-stone-200/40', text: 'text-stone-700', bgBadge: 'bg-stone-200/70', label: '💼 Kerja' },
-            olahraga: { bg: 'bg-green-50/60', border: 'border-green-300/40', text: 'text-green-600', bgBadge: 'bg-green-100', label: '🏋️‍♂️ Olahraga' },
+            olahraga: { bg: 'bg-cyan-50/60', border: 'border-cyan-300/40', text: 'text-cyan-600', bgBadge: 'bg-cyan-100', label: '🏋️‍♂️ Olahraga' },
+            obat: { bg: 'bg-rose-50/70', border: 'border-rose-300/40', text: 'text-rose-600', bgBadge: 'bg-rose-100', label: '💊 Obat/Suplemen' },
+            hidrasi: { bg: 'bg-indigo-50/60', border: 'border-indigo-300/40', text: 'text-indigo-600', bgBadge: 'bg-indigo-100', label: '💧 Air Minum' },
+            metime: { bg: 'bg-amber-50/60', border: 'border-amber-300/40', text: 'text-amber-600', bgBadge: 'bg-amber-100', label: '🧘 Me-Time' },
             lainnya: { bg: 'bg-zinc-50', border: 'border-zinc-200/60', text: 'text-zinc-600', bgBadge: 'bg-zinc-200/50', label: '🌟 Rutin' }
         };
 
         const HARI_URUTAN = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
-        let selectedDay = 'Senin'; // Nilai standar awal sebelum deteksi otomatis
+        let selectedDay = 'Senin';
         let editIndex = -1;
 
         const DEFAULT_SCHEDULE = [];
         
-        // Pola Hidup Sehat Senin - Jumat
+        // Template Rutinitas Sehat Senin - Jumat
         HARI_URUTAN.slice(0, 5).forEach(hari => {
             DEFAULT_SCHEDULE.push(
                 { day: hari, name: 'Bangun Tidur & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya' },
+                { day: hari, name: 'Minum Air Putih Pagi (Hidrasi Awal Tubuh)', start: '05:35', end: '05:45', category: 'hidrasi' },
                 { day: hari, name: 'Sarapan Sehat (Oatmeal + Pisang / Roti Gandum + Telur Rebus)', start: '06:30', end: '07:00', category: 'makan' },
+                { day: hari, name: 'Jadwal Minum Obat / Vitamin Pagi Ibu', start: '07:15', end: '07:25', category: 'obat' },
                 { day: hari, name: 'Mulai Kerja / Aktivitas Pagi', start: '08:00', end: '09:30', category: 'kerja' },
                 { day: hari, name: 'Waktu Terbaik Ngopi Pagi (Kadar Kortisol Menurun)', start: '09:30', end: '10:00', category: 'makan' },
                 { day: hari, name: 'Melanjutkan Kerja Produktif', start: '10:00', end: '12:00', category: 'kerja' },
@@ -185,20 +223,23 @@
                 { day: hari, name: 'Kerja Sesi Siang', start: '13:00', end: '16:00', category: 'kerja' },
                 { day: hari, name: 'Olahraga Sore (Jogging / Kardio / Workout)', start: '16:30', end: '17:30', category: 'olahraga' },
                 { day: hari, name: 'Makan Malam Terakhir (Maksimal Jam 19.00 - Rendah Karbo)', start: '18:30', end: '19:00', category: 'makan' },
-                { day: hari, name: 'Bercengkrama Bersama Keluarga / Tugas Mandiri', start: '19:30', end: '21:30', category: 'lainnya' },
+                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '19:15', end: '19:25', category: 'obat' },
+                { day: hari, name: 'Me-Time / Bersantai dengan Keluarga / Main Game / Musik', start: '19:30', end: '21:30', category: 'metime' },
                 { day: hari, name: 'Tidur Malam Baik (Siklus Istirahat Berbobot)', start: '22:00', end: '05:00', category: 'tidur' }
             );
         });
 
-        // Pola Hidup Sehat Fleksibel (Sabtu - Minggu)
+        // Sabtu - Minggu
         ['Sabtu', 'Minggu'].forEach(hari => {
             DEFAULT_SCHEDULE.push(
                 { day: hari, name: 'Bangun Pagi & Sholat Subuh', start: '05:00', end: '05:30', category: 'lainnya' },
                 { day: hari, name: 'Sarapan Pagi (Makan Bebas / Cheat Day Menu)', start: '07:35', end: '08:15', category: 'makan' },
-                { day: hari, name: 'Waktu Bersantai / Hobi Akhir Pekan', start: '09:00', end: '12:00', category: 'lainnya' },
+                { day: hari, name: 'Jadwal Minum Obat Pagi Ibu', start: '08:20', end: '08:30', category: 'obat' },
+                { day: hari, name: 'Waktu Bersantai / Hobi Akhir Pekan / Hiburan', start: '09:00', end: '12:00', category: 'metime' },
                 { day: hari, name: 'Makan Siang (Makan Bebas Kulineran)', start: '12:30', end: '13:30', category: 'makan' },
                 { day: hari, name: 'Olahraga Akhir Pekan (Tetap Jaga Kebugaran Tubuh)', start: '16:30', end: '17:45', category: 'olahraga' },
                 { day: hari, name: 'Makan Malam Bebas Bersama Keluarga', start: '19:00', end: '20:15', category: 'makan' },
+                { day: hari, name: 'Jadwal Minum Obat Malam Ibu', start: '20:20', end: '20:30', category: 'obat' },
                 { day: hari, name: 'Istirahat / Tidur Malam', start: '22:30', end: '05:00', category: 'tidur' }
             );
         });
@@ -215,6 +256,7 @@
         const alarmBannerText = document.getElementById('alarm-banner-text');
         const dayTabsContainer = document.getElementById('day-tabs');
         const activeDayLabel = document.getElementById('active-day-label');
+        const clearDayName = document.getElementById('clear-day-name');
         const formDetails = document.getElementById('form-details');
         const submitBtn = document.getElementById('submit-btn');
         const cancelEditBtn = document.getElementById('cancel-edit-btn');
@@ -226,7 +268,7 @@
                 return `
                     <button onclick="switchDay('${hari}')" class="px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all shrink-0 ${
                         isActive 
-                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-sm' 
+                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-sm' 
                         : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
                     }">
                         ${hari}
@@ -238,6 +280,7 @@
         function switchDay(hari) {
             selectedDay = hari;
             activeDayLabel.innerText = hari;
+            clearDayName.innerText = hari;
             renderTabs();
             renderJadwal();
             if (editIndex !== -1 && kegiatanList[editIndex].day !== selectedDay) {
@@ -300,6 +343,75 @@
             }
         }
 
+        function eksekusiSalinJadwal() {
+            const dariHari = document.getElementById('copy-from-day').value;
+            const keHari = selectedDay;
+            const statusMsg = document.getElementById('copy-status-msg');
+
+            if (dariHari === keHari) {
+                statusMsg.innerText = "⚠️ Hari asal dan hari tujuan tidak boleh sama!";
+                statusMsg.className = "text-[9px] text-rose-600 mt-1.5 font-medium block";
+                setTimeout(() => statusMsg.classList.add('hidden'), 3000);
+                return;
+            }
+
+            const agendaAsal = kegiatanList.filter(item => item.day === dariHari);
+            if (agendaAsal.length === 0) {
+                statusMsg.innerText = `⚠️ Tidak ada kegiatan di hari ${dariHari} untuk disalin.`;
+                statusMsg.className = "text-[9px] text-amber-600 mt-1.5 font-medium block";
+                setTimeout(() => statusMsg.classList.add('hidden'), 3000);
+                return;
+            }
+
+            kegiatanList = kegiatanList.filter(item => item.day !== keHari);
+
+            agendaAsal.forEach(item => {
+                kegiatanList.push({
+                    day: keHari,
+                    name: item.name,
+                    start: item.start,
+                    end: item.end,
+                    category: item.category
+                });
+            });
+
+            localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
+            renderJadwal();
+
+            statusMsg.innerText = `✅ Berhasil menyalin ${agendaAsal.length} kegiatan dari ${dariHari} ke ${keHari}!`;
+            statusMsg.className = "text-[9px] text-blue-600 mt-1.5 font-bold block";
+            setTimeout(() => statusMsg.classList.add('hidden'), 4000);
+        }
+
+        /* LOGIKA UTAMA: MENGOSONGKAN JADWAL SATU HARI PENUH (Solusi Permintaan Baru User) */
+        function kosongkanHariAktif() {
+            const statusMsg = document.getElementById('copy-status-msg');
+            const agendaHariIni = kegiatanList.filter(item => item.day === selectedDay);
+
+            if (agendaHariIni.length === 0) {
+                statusMsg.innerText = `⚠️ Jadwal hari ${selectedDay} memang sudah kosong.`;
+                statusMsg.className = "text-[9px] text-amber-600 mt-1.5 font-medium block";
+                setTimeout(() => statusMsg.classList.add('hidden'), 3000);
+                return;
+            }
+
+            // Pop-up konfirmasi standar browser demi keamanan data agar tidak sengaja terhapus massal
+            if (confirm(`Apakah Anda yakin ingin mengosongkan (menghapus) semua kegiatan di hari ${selectedDay}?`)) {
+                if (editIndex !== -1 && kegiatanList[editIndex].day === selectedDay) {
+                    batalEdit();
+                }
+
+                // Filter keluar semua kegiatan yang harinya cocok dengan hari aktif (meninggalkan hari lainnya aman)
+                kegiatanList = kegiatanList.filter(item => item.day !== selectedDay);
+                localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
+                renderJadwal();
+
+                statusMsg.innerText = `🗑️ Sukses! Seluruh jadwal hari ${selectedDay} telah dibersihkan.`;
+                statusMsg.className = "text-[9px] text-rose-600 mt-1.5 font-bold block";
+                setTimeout(() => statusMsg.classList.add('hidden'), 4000);
+            }
+        }
+
         function renderJadwal() {
             const filteredTasks = kegiatanList.filter(item => item.day === selectedDay);
             filteredTasks.sort((a, b) => a.start.localeCompare(b.start));
@@ -309,7 +421,7 @@
             if (filteredTasks.length === 0) {
                 listContainer.innerHTML = `
                     <div class="text-center py-8 text-slate-400 text-xs border border-dashed border-stone-200 rounded-xl bg-stone-50">
-                        Belum ada jadwal kustom untuk hari ${selectedDay}.
+                        Belum ada jadwal untuk hari ${selectedDay}. Sila tambahkan baru atau salin dari hari lain.
                     </div>
                 `;
                 return;
@@ -321,18 +433,13 @@
                 const sedangDiedit = originalIndex === editIndex;
 
                 return `
-                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-emerald-500 ring-2 ring-emerald-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
+                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
                         <div class="flex items-center gap-2 overflow-hidden w-full">
-                            <!-- Indikator Waktu -->
                             <div class="shrink-0 text-left min-w-[70px]">
                                 <p class="text-[11px] font-bold text-slate-800">${item.start}</p>
                                 <p class="text-[9px] font-medium text-slate-400">s/d ${item.end}</p>
                             </div>
-                            
-                            <!-- Pembatas Vertikal -->
                             <div class="w-[2px] h-6 bg-slate-200 shrink-0"></div>
-                            
-                            <!-- Konten Utama -->
                             <div class="overflow-hidden pr-2">
                                 <p class="text-xs font-bold text-slate-800 truncate tracking-wide" title="${escapeHtml(item.name)}">
                                     ${escapeHtml(item.name)}
@@ -343,28 +450,18 @@
                             </div>
                         </div>
                         
-                        <!-- Panel Kontrol Aksi -->
                         <div class="flex items-center gap-0.5 shrink-0">
-                            <!-- Tombol Edit -->
-                            <button onclick="aktifkanModeEdit(${originalIndex})" 
-                                class="text-emerald-600 hover:bg-emerald-50 p-1.5 rounded-md transition-all" 
-                                title="Edit Kegiatan">
+                            <button onclick="aktifkanModeEdit(${originalIndex})" class="text-blue-600 hover:bg-blue-50 p-1.5 rounded-md transition-all" title="Edit">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                             </button>
-                            <!-- Tombol Alarm HP -->
-                            <button onclick="setAndroidAlarm('${item.start}', '${escapeHtml(item.name)}')" 
-                                class="text-stone-600 hover:bg-stone-100 p-1.5 rounded-md transition-all" 
-                                title="Setel Alarm HP Android">
+                            <button onclick="setAndroidAlarm('${item.start}', '${escapeHtml(item.name)}')" class="text-stone-600 hover:bg-stone-100 p-1.5 rounded-md transition-all" title="Setel Alarm HP Android">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                                 </svg>
                             </button>
-                            <!-- Tombol Hapus -->
-                            <button onclick="hapusJadwal(${originalIndex})" 
-                                class="text-stone-300 hover:text-rose-600 hover:bg-slate-100 p-1.5 rounded-md transition-all"
-                                title="Hapus">
+                            <button onclick="hapusJadwal(${originalIndex})" class="text-stone-300 hover:text-rose-600 hover:bg-slate-100 p-1.5 rounded-md transition-all" title="Hapus">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                 </svg>
@@ -387,8 +484,8 @@
 
             formTitleLabel.innerText = "✍️ Edit / Ubah Kegiatan";
             submitBtn.innerText = "Simpan Perubahan";
-            submitBtn.classList.replace('bg-stone-900', 'bg-emerald-600');
-            submitBtn.classList.replace('hover:bg-stone-800', 'hover:bg-emerald-700');
+            submitBtn.classList.replace('bg-stone-900', 'bg-blue-600');
+            submitBtn.classList.replace('hover:bg-stone-800', 'hover:bg-blue-700');
             cancelEditBtn.classList.remove('hidden');
 
             formDetails.open = true;
@@ -396,6 +493,7 @@
             if (item.day !== selectedDay) {
                 selectedDay = item.day;
                 activeDayLabel.innerText = item.day;
+                clearDayName.innerText = item.day;
                 renderTabs();
             }
             renderJadwal();
@@ -406,10 +504,10 @@
             form.reset();
             document.getElementById('task-day').value = selectedDay;
 
-            formTitleLabel.innerText = "+ Tambah / Kustomisasi Kegiatan";
+            formTitleLabel.innerText = "+ Tambah / Kustomisasi / Kelola Jadwal";
             submitBtn.innerText = "Tambahkan ke Agenda";
-            submitBtn.classList.replace('bg-emerald-600', 'bg-stone-900');
-            submitBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-stone-800');
+            submitBtn.classList.replace('bg-blue-600', 'bg-stone-900');
+            submitBtn.classList.replace('hover:bg-blue-700', 'hover:bg-stone-800');
             cancelEditBtn.classList.add('hidden');
             
             renderJadwal();
@@ -442,14 +540,15 @@
             localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
             form.reset();
             
-            formTitleLabel.innerText = "+ Tambah / Kustomisasi Kegiatan";
+            formTitleLabel.innerText = "+ Tambah / Kustomisasi / Kelola Jadwal";
             submitBtn.innerText = "Tambahkan ke Agenda";
-            submitBtn.classList.replace('bg-emerald-600', 'bg-stone-900');
-            submitBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-stone-800');
+            submitBtn.classList.replace('bg-blue-600', 'bg-stone-900');
+            submitBtn.classList.replace('hover:bg-blue-700', 'hover:bg-stone-800');
             cancelEditBtn.classList.add('hidden');
 
             selectedDay = hari;
             activeDayLabel.innerText = hari;
+            clearDayName.innerText = hari;
             
             renderTabs();
             renderJadwal();
@@ -471,7 +570,6 @@
         }
 
         window.onload = function() {
-            // Logika Deteksi Hari Otomatis Sesuai Waktu Perangkat Pengguna
             const waktuSekarang = new Date();
             const daftarHariIndo = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
             const hariIniDeteksi = daftarHariIndo[waktuSekarang.getDay()];
@@ -481,6 +579,7 @@
             }
             
             activeDayLabel.innerText = selectedDay;
+            clearDayName.innerText = selectedDay;
             document.getElementById('task-day').value = selectedDay;
 
             renderTabs();
