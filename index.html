@@ -317,17 +317,14 @@
             alarmBanner.classList.add('hidden');
         }
 
-        /* BARU: Sakelar Mengubah Status Aktif/Mute Alarm per Aktivitas */
         function toggleAlarmAktivitas(originalIndex) {
             if (originalIndex > -1) {
                 const item = kegiatanList[originalIndex];
-                // Jika properti belum ada, set default true lalu balik nilainya
                 item.alarmActive = item.alarmActive !== false ? false : true;
                 
                 localStorage.setItem('weekly_healthy_orange_jadwal', JSON.stringify(kegiatanList));
                 renderJadwal();
 
-                // Jika pengguna mematikan alarm saat sedang berbunyi, langsung matikan banner pengingat
                 if (!item.alarmActive) {
                     matikanAlarmInternal();
                 }
@@ -352,7 +349,6 @@
             if (waktuSekarangString === menitTerakhirDiperiksa) return;
             menitTerakhirDiperiksa = waktuSekarangString;
 
-            // HANYA bunyikan jika alarmActive bernilai TRUE atau tidak bernilai FALSE
             const aktivitasSesuai = kegiatanList.find(item => 
                 item.day === hariSekarang && 
                 item.start === waktuSekarangString && 
@@ -452,31 +448,30 @@
                 const originalIndex = kegiatanList.findIndex(x => x.day === item.day && x.start === item.start && x.name === item.name);
                 const config = THEME_CONFIG[item.category] || THEME_CONFIG.lainnya;
                 const sedangDiedit = originalIndex === editIndex;
-                
-                // BARU: Penentuan status alarm aktif atau silent
                 const isAlarmActive = item.alarmActive !== false;
 
+                // PEMBARUAN UTAMA: Seluruh baris kartu kegiatan tetap terang bugar (tanpa pengurangan opacity atau text-muted hancur)
                 return `
-                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all ${!isAlarmActive ? 'opacity-75' : ''}">
+                    <div class="flex items-center justify-between p-2.5 ${config.bg} border ${sedangDiedit ? 'border-blue-500 ring-2 ring-blue-500/20' : config.border} rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.01)] transition-all">
                         <div class="flex items-center gap-2 overflow-hidden w-full">
                             <div class="shrink-0 text-left min-w-[70px]">
-                                <p class="text-[11px] font-bold ${!isAlarmActive ? 'text-slate-400' : 'text-slate-800'}">${item.start}</p>
+                                <p class="text-[11px] font-bold text-slate-800">${item.start}</p>
                                 <p class="text-[9px] font-medium text-slate-400">s/d ${item.end}</p>
                             </div>
                             <div class="w-[2px] h-6 bg-slate-200 shrink-0"></div>
                             <div class="overflow-hidden pr-2">
-                                <p class="text-xs font-bold ${!isAlarmActive ? 'text-slate-400 line-through' : 'text-slate-800'} truncate tracking-wide" title="${escapeHtml(item.name)}">
+                                <p class="text-xs font-bold text-slate-800 truncate tracking-wide" title="${escapeHtml(item.name)}">
                                     ${escapeHtml(item.name)}
                                 </p>
-                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-0.5 rounded ${!isAlarmActive ? 'bg-slate-200 text-slate-500' : config.bgBadge + ' ' + config.text}">
-                                    ${!isAlarmActive ? '🔇 Silent' : config.label} ${sedangDiedit ? '(Diedit)' : ''}
+                                <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 mt-0.5 rounded ${config.bgBadge} ${config.text}">
+                                    ${config.label} ${sedangDiedit ? '(Diedit)' : ''}
                                 </span>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-0.5 shrink-0">
-                            <!-- BARU: Tombol Lonceng Interaktif untuk Aktif / Silent Alarm Internal -->
-                            <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-slate-400 hover:bg-slate-100'}" title="${isAlarmActive ? 'Klik untuk Senapkan (Silent) Alarm' : 'Klik untuk Aktifkan Alarm'}">
+                            <!-- SAKELAR MERAH / BIRU HANYA PADA LONCENG: Lonceng Merah Silang menandakan alarm mati tanpa meredupkan tulisan -->
+                            <button onclick="toggleAlarmAktivitas(${originalIndex})" class="p-1.5 rounded-md transition-all ${isAlarmActive ? 'text-blue-600 hover:bg-blue-50' : 'text-rose-500 hover:bg-rose-50'}" title="${isAlarmActive ? 'Klik untuk Senapkan (Silent) Alarm' : 'Klik untuk Aktifkan Alarm'}">
                                 ${isAlarmActive ? 
                                     `<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -557,7 +552,6 @@
             const selesai = document.getElementById('task-end').value;
             const kategori = document.getElementById('task-category').value;
 
-            // Pertahankan status alarmActive lama jika sedang dalam mode edit
             const alarmActiveLama = editIndex !== -1 ? (kegiatanList[editIndex].alarmActive !== false) : true;
 
             const objekKegiatan = {
