@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Jadwal Sehat Ocean Blue & Soft Slate</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,34 +14,25 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* Custom scrollbar super tipis dengan aksen abu-abu kalem */
-        .custom-scroll::-webkit-scrollbar {
-            width: 4px;
+        /* Menyembunyikan scrollbar bawaan untuk estetika dasbor seluler yang bersih */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: #f8fafc;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-stone-100 via-slate-50 to-blue-50/50 text-slate-800 h-screen w-screen p-2 sm:p-4 flex items-center justify-center relative overflow-hidden">
+<body class="bg-slate-50 text-slate-800 min-h-screen w-full relative overflow-x-hidden flex justify-center">
 
-    <!-- Ornamen Latar Belakang Ocean Blue Lembut -->
-    <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-stone-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-    <!-- Main Card Container: Dikunci tinggi layarnya di HP agar header terisolasi secara absolut -->
-    <div class="w-full max-w-xl h-[92vh] sm:h-auto max-h-[92vh] bg-white rounded-2xl shadow-md border border-stone-200/60 relative z-10 flex flex-col overflow-hidden">
+    <!-- Kontainer Utama: Dioptimalkan pas di layar HP tanpa jarak melayang -->
+    <div class="w-full max-w-xl min-h-screen bg-white relative flex flex-col shadow-xl">
         
-        <!-- Header Utama: Benar-benar diam di tempat (Shrink-0 menolak pengerutan layout) -->
-        <header class="shrink-0 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center justify-between border-b-2 border-blue-800 shadow-sm">
+        <!-- HEADER UTAMA: Terkunci Mati di Atas Layar HP (Fixed Top) -->
+        <header class="fixed top-0 left-0 right-0 max-w-xl mx-auto z-50 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center justify-between border-b-2 border-blue-800 shadow-md">
             <div class="flex items-center gap-3">
                 <div class="shrink-0 flex items-center justify-center p-2 bg-white/10 border border-white/20 rounded-xl shadow-inner">
                     <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +54,8 @@
             </div>
         </header>
 
-        <!-- Container Utama Konten: Area Mandiri yang Dapat Digulir (Scrollable) -->
-        <div class="flex-1 overflow-y-auto p-4 space-y-3.5 custom-scroll bg-white">
+        <!-- KONTEN TENGAH: Diberi padding atas (pt-16) dan bawah (pb-16) agar tidak tertabrak header/footer fixed -->
+        <main class="flex-1 pt-[72px] pb-[44px] p-4 space-y-4 overflow-y-auto">
             
             <!-- Pesan Kotak Notifikasi Alarm Internal Aplikasi -->
             <div id="alarm-banner" class="hidden p-3 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
@@ -183,7 +174,7 @@
 
             <!-- Agenda Section -->
             <div class="flex flex-col gap-2">
-                <!-- Baris Judul Agenda Teroptimasi: Tombol Sinkronisasi Bersanding Kompak -->
+                <!-- Baris Judul Agenda Teroptimasi -->
                 <div class="flex justify-between items-center border-b border-stone-100 pb-1.5 gap-2">
                     <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1 shrink-0">
                         <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
@@ -191,7 +182,7 @@
                     </h2>
                     
                     <div class="flex items-center gap-1.5 justify-end w-full min-w-0">
-                        <!-- Tombol Sinkronisasi Massal yang Lebih Kecil, Padat, Rapi & Tidak Memakan Tempat -->
+                        <!-- Tombol Sinkronisasi Massal -->
                         <button type="button" onclick="kirimSemuaJadwalHariIniKeAndroid()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold px-2.5 py-1 rounded-lg text-[9px] sm:text-[10px] transition-all shadow-sm flex items-center gap-1 whitespace-nowrap" title="Sinkronkan semua alarm yang menyala langsung ke jam HP">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -203,13 +194,21 @@
                     </div>
                 </div>
                 
-                <!-- List Agenda Container (Tanpa internal scroll ganda untuk kelancaran gulir mobile) -->
+                <!-- List Agenda Container -->
                 <div id="task-list" class="space-y-2">
                     <!-- Javascript Injection -->
                 </div>
             </div>
 
-        </div>
+        </main>
+
+        <!-- FOOTER UTAMA: Terkunci Mati di Bawah Layar HP (Fixed Bottom) - Versi Bersih & Abu-abu Solid -->
+        <footer class="fixed bottom-0 left-0 right-0 max-w-xl mx-auto z-50 bg-slate-100 text-slate-700 py-2 px-4 text-center border-t border-slate-200 shadow-[0_-2px_8px_rgba(0,0,0,0.04)] flex items-center justify-center">
+            <p class="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                Tetap Semangat dan Konsisten!
+            </p>
+        </footer>
+
     </div>
 
     <script>
@@ -230,9 +229,9 @@
         // Pola Makan, Olahraga, & Obat Sesuai Permintaan Spesifik Anda (Senin - Jumat)
         HARI_URUTAN.slice(0, 5).forEach(hari => {
             DEFAULT_SCHEDULE.push(
-                { day: hari, name: 'Sarapan Pagi Sehat (Menu Diet Rendah Gula)', start: '01:00', end: '01:30', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Waktu Minum Kopi Kedua', start: '02:00', end: '02:30', category: 'makan', alarmActive: true },
-                { day: hari, name: 'Makan Siang Bebas / Cheat Meal Siang', start: '13:00', end: '14:00', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Sarapan Pagi Sehat (Menu Diet Rendah Gula)', start: '06:00', end: '06:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Waktu Minum Kopi', start: '08:00', end: '08:30', category: 'makan', alarmActive: true },
+                { day: hari, name: 'Makan Siang Bebas / Cheat Meal Siang', start: '12:00', end: '12:30', category: 'makan', alarmActive: true },
                 { day: hari, name: 'Olahraga Sore Rutin (Bakar Kalori)', start: '17:00', end: '18:00', category: 'olahraga', alarmActive: true },
                 { day: hari, name: 'Makan Sore Sehat / Makan Malam Terakhir', start: '18:30', end: '19:15', category: 'makan', alarmActive: true },
                 { day: hari, name: 'Minum Obat Magnesium (2 Jam Sebelum Tidur - Penenang Otot)', start: '20:00', end: '20:15', category: 'obat', alarmActive: true }
@@ -266,14 +265,15 @@
         const cancelEditBtn = document.getElementById('cancel-edit-btn');
         const formTitleLabel = document.getElementById('form-title-label');
 
+        // Menggunakan skema intent:// yang sah untuk Chrome Android agar tidak memicu error UNKNOWN_URL_SCHEME
         function jalankanIntentAlarmAndroid(namaAktivitas, waktuMulaiStr) {
-            if (!waktuMulaiStr || !waktuMulaiStr.includes(':')) return;
+            if (!waktuMulaiStr || !waktuMulaiStr.includes(':')) return '';
             const bagianWaktu = waktuMulaiStr.split(':');
             const jamInt = parseInt(bagianWaktu[0], 10);
             const menitInt = parseInt(bagianWaktu[1], 10);
-            const labelKustomEncoded = encodeURIComponent(namaAktivitas);
             
-            return `android-app://com.android.deskclock/images/v1/Alarm?hour=${jamInt}&minute=${menitInt}&message=${labelKustomEncoded}&skipUi=true`;
+            // Format intent untuk memanggil aplikasi Jam bawaan Android (com.android.deskclock)
+            return `intent://#Intent;action=android.intent.action.SET_ALARM;i.android.intent.extra.alarm.HOUR=${jamInt};i.android.intent.extra.alarm.MINUTE=${menitInt};S.android.intent.extra.alarm.MESSAGE=${encodeURIComponent(namaAktivitas)};b.android.intent.extra.alarm.SKIP_UI=true;end`;
         }
 
         function kirimSemuaJadwalHariIniKeAndroid() {
@@ -285,21 +285,26 @@
                 return;
             }
 
+            // Eksekusi pengiriman via intent:// untuk mencegah pembatasan sistem Chrome Android
             jadwalHariIni.forEach((item, index) => {
                 setTimeout(() => {
                     const intentUrl = jalankanIntentAlarmAndroid(item.name, item.start);
-                    
+                    if (!intentUrl) return;
+
                     if (index === jadwalHariIni.length - 1) {
+                        // Iterasi terakhir memunculkan UI Jam untuk konfirmasi akhir simpan
                         const bagianWaktu = item.start.split(':');
-                        window.location.href = `android-app://com.android.deskclock/images/v1/Alarm?hour=${parseInt(bagianWaktu[0],10)}&minute=${parseInt(bagianWaktu[1],10)}&message=${encodeURIComponent(item.name)}&skipUi=false`;
+                        const finalIntent = `intent://#Intent;action=android.intent.action.SET_ALARM;i.android.intent.extra.alarm.HOUR=${parseInt(bagianWaktu[0],10)};i.android.intent.extra.alarm.MINUTE=${parseInt(bagianWaktu[1],10)};S.android.intent.extra.alarm.MESSAGE=${encodeURIComponent(item.name)};b.android.intent.extra.alarm.SKIP_UI=false;end`;
+                        window.location.href = finalIntent;
                     } else {
+                        // Pengiriman senyap di latar belakang menggunakan iframe buatan sementara
                         const iframe = document.createElement('iframe');
                         iframe.style.display = 'none';
                         iframe.src = intentUrl;
                         document.body.appendChild(iframe);
-                        setTimeout(() => iframe.remove(), 500);
+                        setTimeout(() => iframe.remove(), 400);
                     }
-                }, index * 800); 
+                }, index * 600); 
             });
         }
 
@@ -383,7 +388,7 @@
             const daftarBulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
             
             const namaHari = daftarHari[sekarang.getDay()];
-            const tanggal = sekarang.getDate();
+            const tanggal = machinedate = sekarang.getDate();
             const namaBulan = daftarBulan[sekarang.getMonth()];
             
             document.getElementById('live-date').innerText = `${namaHari}, ${tanggal} ${namaBulan}`;
