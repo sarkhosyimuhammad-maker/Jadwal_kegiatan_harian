@@ -16,32 +16,32 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         /* Custom scrollbar super tipis dengan aksen abu-abu kalem */
-        ::-webkit-scrollbar {
+        .custom-scroll::-webkit-scrollbar {
             width: 4px;
         }
-        ::-webkit-scrollbar-track {
+        .custom-scroll::-webkit-scrollbar-track {
             background: #f8fafc;
         }
-        ::-webkit-scrollbar-thumb {
+        .custom-scroll::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 10px;
         }
-        ::-webkit-scrollbar-thumb:hover {
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-stone-100 via-slate-50 to-blue-50/50 text-slate-800 min-h-screen py-3 px-2 sm:py-6 sm:px-4 flex items-center justify-center relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-100 via-slate-50 to-blue-50/50 text-slate-800 h-screen w-screen p-2 sm:p-4 flex items-center justify-center relative overflow-hidden">
 
     <!-- Ornamen Latar Belakang Ocean Blue Lembut -->
     <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-stone-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-    <!-- Main Card Container -->
-    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-stone-200/60 relative z-10 overflow-hidden">
+    <!-- Main Card Container: Dikunci tinggi layarnya di HP agar header terisolasi secara absolut -->
+    <div class="w-full max-w-xl h-[92vh] sm:h-auto max-h-[92vh] bg-white rounded-2xl shadow-md border border-stone-200/60 relative z-10 flex flex-col overflow-hidden">
         
-        <!-- Header Utama Menetap (Sticky) dengan Warna Solid Premium & Indikator Waktu Real-Time Dinamis -->
-        <header class="sticky top-0 z-50 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center justify-between border-b-2 border-blue-800 shadow-sm">
+        <!-- Header Utama: Benar-benar diam di tempat (Shrink-0 menolak pengerutan layout) -->
+        <header class="shrink-0 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white p-4 flex items-center justify-between border-b-2 border-blue-800 shadow-sm">
             <div class="flex items-center gap-3">
                 <div class="shrink-0 flex items-center justify-center p-2 bg-white/10 border border-white/20 rounded-xl shadow-inner">
                     <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +63,8 @@
             </div>
         </header>
 
-        <!-- Padding Container untuk Konten Utama -->
-        <div class="p-4 space-y-3.5">
+        <!-- Container Utama Konten: Area Mandiri yang Dapat Digulir (Scrollable) -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-3.5 custom-scroll bg-white">
             
             <!-- Pesan Kotak Notifikasi Alarm Internal Aplikasi -->
             <div id="alarm-banner" class="hidden p-3 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-between animate-pulse">
@@ -183,7 +183,7 @@
 
             <!-- Agenda Section -->
             <div class="flex flex-col gap-2">
-                <!-- Baris Judul Agenda Teroptimasi: Tombol Sinkronisasi Bersanding Kompak & Proporsional di Sisi Kanan Label Hari -->
+                <!-- Baris Judul Agenda Teroptimasi: Tombol Sinkronisasi Bersanding Kompak -->
                 <div class="flex justify-between items-center border-b border-stone-100 pb-1.5 gap-2">
                     <h2 class="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1 shrink-0">
                         <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
@@ -203,8 +203,8 @@
                     </div>
                 </div>
                 
-                <!-- List Agenda Container -->
-                <div id="task-list" class="space-y-2 max-h-[65vh] overflow-y-auto pr-0.5">
+                <!-- List Agenda Container (Tanpa internal scroll ganda untuk kelancaran gulir mobile) -->
+                <div id="task-list" class="space-y-2">
                     <!-- Javascript Injection -->
                 </div>
             </div>
@@ -412,7 +412,7 @@
             const statusMsg = document.getElementById('copy-status-msg');
 
             if (dariHari === keHari) {
-                statusMsg.innerText = "⚠️ Hari asal and hari tujuan tidak boleh sama!";
+                statusMsg.innerText = "⚠️ Hari asal dan hari tujuan tidak boleh sama!";
                 statusMsg.className = "text-[9px] text-rose-600 mt-1.5 font-medium block";
                 setTimeout(() => statusMsg.classList.add('hidden'), 3000);
                 return;
